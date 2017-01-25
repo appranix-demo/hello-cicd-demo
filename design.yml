@@ -1,0 +1,30 @@
+---
+platforms:
+  helloworld:
+    pack: prana/tomcat:2
+    major_version: '1'
+    variables:
+      deployContext: quick-demo-app
+      appVersion: 1.0.3
+      extension: war
+      groupId: com.appranix
+      artifactId: quick-demo-app
+    components:
+      tomcat/prana.1.Tomcat:
+        tomcat:
+          tomcat_group: user
+          autodeploy_enabled: 'true'
+          tomcat_user: user
+      artifact/prana.1.Artifact:
+        artifact:
+          install_dir: /app/$AX_LOCAL{artifactId}
+          as_user: user
+          restart: "execute \"rm -rf /opt/tomcat7/webapps/*.war\" \r\nexecute \"ln
+            -s /app/$AX_LOCAL{artifactId}/releases/$AX_LOCAL{appVersion}/$AX_LOCAL{artifactId}-$AX_LOCAL{appVersion}.$AX_LOCAL{extension}
+            /opt/tomcat7/webapps/\""
+          as_group: user
+          location: $AX_LOCAL{groupId}:$AX_LOCAL{artifactId}:$AX_LOCAL{extension}
+          repository: releases
+          version: $AX_LOCAL{appVersion}
+          url: http://i00039.hosts.appranix.info:8081
+          username: admin
