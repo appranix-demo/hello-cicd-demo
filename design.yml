@@ -20,9 +20,8 @@ platforms:
           install_dir: /app/$AX_LOCAL{artifactId}
           as_user: user
           should_expand: false
-          restart: "execute \"rm -rf /opt/tomcat7/webapps/*.war\" \r\nexecute \"ln
-            -s /app/$AX_LOCAL{artifactId}/releases/$AX_LOCAL{appVersion}/$AX_LOCAL{artifactId}-$AX_LOCAL{appVersion}.$AX_LOCAL{extension}
-            /opt/tomcat7/webapps/\""
+          restart: "execute \"rm -rf /opt/tomcat7/webapps/*.war\" \r\nexecute \"mv /app/$AX_LOCAL{artifactId}/releases/$AX_LOCAL{appVersion}/$AX_LOCAL{artifactId}-$AX_LOCAL{appVersion}.$AX_LOCAL{extension}
+            /opt/tomcat7/webapps/quick-demo-app.war\""
           as_group: user
           location: $AX_LOCAL{groupId}:$AX_LOCAL{artifactId}:$AX_LOCAL{extension}
           repository: releases
