@@ -5,7 +5,7 @@ platforms:
     major_version: '1'
     variables:
       deployContext: quick-demo-app
-      appVersion: 1.0.3
+      appVersion: 104
       extension: war
       groupId: com.appranix
       artifactId: quick-demo-app
@@ -19,6 +19,7 @@ platforms:
         artifact:
           install_dir: /app/$AX_LOCAL{artifactId}
           as_user: user
+          should_expand: false
           restart: "execute \"rm -rf /opt/tomcat7/webapps/*.war\" \r\nexecute \"ln
             -s /app/$AX_LOCAL{artifactId}/releases/$AX_LOCAL{appVersion}/$AX_LOCAL{artifactId}-$AX_LOCAL{appVersion}.$AX_LOCAL{extension}
             /opt/tomcat7/webapps/\""
