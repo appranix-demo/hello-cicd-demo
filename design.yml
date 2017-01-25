@@ -1,6 +1,6 @@
 ---
 platforms:
-  helloworld:
+  webapp:
     pack: prana/tomcat:2
     major_version: '1'
     variables:
