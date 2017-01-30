@@ -26,29 +26,29 @@ node {
                sh 'prana auth logout'
                sh 'echo successfully logged out'
                 
-               sh 'prana auth login --username=${env.USERNAME} --password=${env.PASSWORD} --account=testorg'
+               sh "prana auth login --username=${env.USERNAME} --password=${env.PASSWORD} --account=testorg"
                sh 'echo successfully logged in'
                
-               sh 'prana config set organization=testorg-app-associates -g'
+               sh "prana config set organization=testorg-app-associates -g"
                sh 'echo organization is set as testorg-app-associates'
                
-               sh 'prana config set assembly=quick-demo-app -g'
+               sh "prana config set assembly=quick-demo-app -g"
                sh 'echo assembly is set as quick-demo-app'
                
-               sh 'prana design load design.yml'
-               sh 'echo design is uploaded'
+               sh "prana design load design.yml"
+               sh "echo design is uploaded'
                
-               sh 'prana design variable update -a quick-demo-app --platform=webapp appVersion=${env.BUILD_ID}'
+               sh "prana design variable update -a quick-demo-app --platform=webapp appVersion=${env.BUILD_ID}"
                
-               sh 'prana design commit ${env.GIT_COMMIT}'
+               sh "prana design commit ${env.GIT_COMMIT}"
                sh 'new design in committed with message ${env.GIT_COMMIT}'      
          
-               sh 'prana transition pull -e ci'
+               sh "prana transition pull -e ci"
                sh 'design pull to ci appspace'
                
-               sh 'prana transition commit init-commit -e ci'
+               sh "prana transition commit init-commit -e ci"
                
-               sh 'prana transition deployment create -e ci'
+               sh "prana transition deployment create -e ci"
                sh 'deployement is started'
       }
    }
