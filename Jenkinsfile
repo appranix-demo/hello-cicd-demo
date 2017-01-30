@@ -40,9 +40,8 @@ node {
 
                sh "prana design variable update -a quick-demo-app --platform=webapp appVersion=${env.BUILD_ID}"
 
-               sh 'echo ${GIT_COMMIT}'
-               sh "prana design commit ${GIT_COMMIT}"
-               sh 'new design in committed with message ${GIT_COMMIT}'
+               sh "prana design commit init-commit"
+               sh 'new design in committed with message init-commit'
 
                sh "prana transition pull -e ci"
                sh 'design pull to ci appspace'
