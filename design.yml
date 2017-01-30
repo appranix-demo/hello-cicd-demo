@@ -26,5 +26,5 @@ platforms:
           location: $AX_LOCAL{groupId}:$AX_LOCAL{artifactId}:$AX_LOCAL{extension}
           repository: releases
           version: $AX_LOCAL{appVersion}
-          url: http://i00039.hosts.appranix.info:8081
+          url: https://repo.appranix.net
           username: admin
