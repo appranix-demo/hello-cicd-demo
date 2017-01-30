@@ -13,7 +13,7 @@ node {
          credentialsId: 'nexus',
          groupId: 'com.appranix',
          nexusUrl: 'repo.appranix.net',
-         nexusVersion: 'nexus2',
+         nexusVersion: 'nexus3',
          protocol: 'https',
          repository: 'releases',
          version: env.BUILD_ID
