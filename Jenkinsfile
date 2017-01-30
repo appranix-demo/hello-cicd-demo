@@ -12,9 +12,9 @@ node {
                                        ]],
          credentialsId: 'nexus',
          groupId: 'com.appranix',
-         nexusUrl: 'repo.appranix.net',
-         nexusVersion: 'nexus3',
-         protocol: 'https',
+         nexusUrl: 'repo.appranix.net/nexus',
+         nexusVersion: 'nexus2',
+         protocol: 'http',
          repository: 'releases',
          version: env.BUILD_ID
    }
