@@ -14,7 +14,7 @@ node {
          groupId: 'com.appranix',
          nexusUrl: 'repo.appranix.net/nexus',
          nexusVersion: 'nexus2',
-         protocol: 'http',
+         protocol: 'https',
          repository: 'releases',
          version: env.BUILD_ID
    }
