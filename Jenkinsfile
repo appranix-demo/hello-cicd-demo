@@ -43,12 +43,12 @@ node {
                sh "prana design commit init-commit"
                sh 'echo new design in committed with message init-commit'
 
-               sh "prana transition pull -e qa"
-               sh 'echo design pull to qa appspace'
+               sh "prana transition pull -e prod"
+               sh 'echo design pull to prod appspace'
 
-               sh "prana transition commit init-commit -e qa"
+               sh "prana transition commit init-commit -e prod"
 
-               sh "prana transition deployment create -e qa"
+               sh "prana transition deployment create -e prod"
                sh 'echo deployement is started'
       }
    }
