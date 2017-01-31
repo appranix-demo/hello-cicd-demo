@@ -26,7 +26,7 @@ node {
                sh 'prana auth logout'
                sh 'echo successfully logged out'
 
-               sh "prana auth login --username=${env.USERNAME} --password=${env.PASSWORD} --account=demo-user"
+               sh "prana auth login --username=${env.USERNAME} --password=${env.PASSWORD} --account=demo-org"
                sh 'echo successfully logged in'
 
                sh "prana config set organization=demo-org -g"
