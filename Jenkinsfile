@@ -26,19 +26,19 @@ node {
                sh 'prana auth logout'
                sh 'echo successfully logged out'
 
-               sh "prana auth login --username=${env.USERNAME} --password=${env.PASSWORD} --account=demo-org"
+               sh "prana auth login --username=${env.USERNAME} --password=${env.PASSWORD} --account=demoinc"
                sh 'echo successfully logged in'
 
-               sh "prana config set organization=demo-org -g"
+               sh "prana config set organization=demoinc -g"
                sh 'echo organization is set as demoinc'
 
-               sh "prana config set assembly=quick-demo-app -g"
-               sh 'echo assembly is set as quick-demo-app'
+               sh "prana config set assembly=ci-demoapp -g"
+               sh 'echo assembly is set as ci-demoapp'
 
                sh "prana design load design.yml"
                sh 'echo design is uploaded'
 
-               sh "prana design variable update -a quick-demo-app --platform=webapp appVersion=${env.BUILD_ID}"
+               sh "prana design variable update -a ci-demoapp --platform=webapp appVersion=${env.BUILD_ID}"
 
                sh "prana design commit init-commit"
                sh 'echo new design in committed with message init-commit'
