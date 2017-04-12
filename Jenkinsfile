@@ -45,6 +45,8 @@ node {
 
                sh "prana transition pull -e prod"
                sh 'echo design pull to prod appspace'
+	 
+	       sh 'sleep 20'
 
                sh "prana transition commit init-commit -e prod"
 
