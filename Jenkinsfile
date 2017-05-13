@@ -29,7 +29,7 @@ node {
                sh "prana auth login --username=${env.USERNAME} --password=${env.PASSWORD} --account=devorg"
                sh 'echo successfully logged in'
 
-               sh "prana config set organization=devorg -g"
+               sh "prana config set organization=devorg-veeresh -g"
                sh 'echo organization is set as devorg'
 
                sh "prana config set assembly=ci-demoapp -g"
