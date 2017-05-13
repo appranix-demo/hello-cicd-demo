@@ -26,11 +26,11 @@ node {
                sh 'prana auth logout'
                sh 'echo successfully logged out'
 
-               sh "prana auth login --username=${env.USERNAME} --password=${env.PASSWORD} --account=demoinc"
+               sh "prana auth login --username=${env.USERNAME} --password=${env.PASSWORD} --account=devorg"
                sh 'echo successfully logged in'
 
-               sh "prana config set organization=demoinc -g"
-               sh 'echo organization is set as demoinc'
+               sh "prana config set organization=devorg -g"
+               sh 'echo organization is set as devorg'
 
                sh "prana config set assembly=ci-demoapp -g"
                sh 'echo assembly is set as ci-demoapp'
