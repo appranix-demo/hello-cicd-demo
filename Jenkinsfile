@@ -20,17 +20,17 @@ node {
    }
 
    stage('Deploy to Prana') {
-      withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'veeresh-appranix',
+      withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'customer-demo',
                             usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']]) {
                 //available as an env variable, but will be masked if you try to print it out any which way
                sh 'prana auth logout'
                sh 'echo successfully logged out'
 
-               sh "prana auth login --username=${env.USERNAME} --password=${env.PASSWORD} --account=devorg"
+               sh "prana auth login --username=${env.USERNAME} --password=${env.PASSWORD} --account=demo-inc"
                sh 'echo successfully logged in'
 
-               sh "prana config set organization=devorg-veeresh -g"
-               sh 'echo organization is set as devorg'
+               sh "prana config set organization=demo-inc -g"
+               sh 'echo organization is set as demo-inc'
 
                sh "prana config set assembly=ci-demoapp -g"
                sh 'echo assembly is set as ci-demoapp'
@@ -43,14 +43,14 @@ node {
                sh "prana design commit init-commit"
                sh 'echo new design in committed with message init-commit'
 
-               sh "prana transition pull -e pro"
+               sh "prana transition pull -e prod"
                sh 'echo design pull to prod appspace'
 
 	       sh 'sleep 20'
 
-               sh "prana transition commit init-commit -e pro"
+               sh "prana transition commit init-commit -e prod"
 
-               sh "prana transition deployment create -e pro"
+               sh "prana transition deployment create -e prod"
                sh 'echo deployement is started'
       }
    }
