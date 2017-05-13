@@ -1,7 +1,7 @@
 ---
 platforms:
   webapp:
-    pack: prana/tomcat:2
+    pack: core/tomcat:1
     major_version: '1'
     variables:
       deployContext: quick-demo-app
@@ -10,12 +10,12 @@ platforms:
       groupId: com.appranix
       artifactId: quick-demo-app
     components:
-      tomcat/prana.1.Tomcat:
+      tomcat/core.1.Tomcat:
         tomcat:
           tomcat_group: user
           autodeploy_enabled: 'true'
           tomcat_user: user
-      artifact/prana.1.Artifact:
+      artifact/core.1.Artifact:
         artifact:
           install_dir: /app/$AX_LOCAL{artifactId}
           as_user: user
