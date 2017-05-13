@@ -20,7 +20,7 @@ node {
    }
 
    stage('Deploy to Prana') {
-      withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'ci-appranix',
+      withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'veeresh-appranix',
                             usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']]) {
                 //available as an env variable, but will be masked if you try to print it out any which way
                sh 'prana auth logout'
@@ -45,7 +45,7 @@ node {
 
                sh "prana transition pull -e prod"
                sh 'echo design pull to prod appspace'
-	 
+
 	       sh 'sleep 20'
 
                sh "prana transition commit init-commit -e prod"
