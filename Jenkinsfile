@@ -1,7 +1,7 @@
 node {
    stage('Build') {
          git 'https://github.com/appranix-demo/hello-cicd-demo.git/'
-         sh 'mvn package'
+         sh './mvnw package'
          archive 'target/*.war'
    }
 
